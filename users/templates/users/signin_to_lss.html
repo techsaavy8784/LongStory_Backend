@@ -1,0 +1,35 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Signin to LSS</title>
+  <style>
+    .card {
+      font-family: 'Helvetica Neue';
+      text-align: left;
+      margin: auto;
+      width: 40%;
+    }
+    
+    .btn {
+      padding: 7px;
+      margin-bottom: 10px;
+      background: #993cf3;
+      color: #fff;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="card-body">
+      <p>Welcome {{ email }} visiting Long Story Short</p>
+      <p>Thanks for signing in.</p>
+      <p>Please click below button to signin to our site.</p>
+      {% with activate_url = 'http://'|add:domain|add:'/users/get-token?uidb64='|add:uid|add:'&token='|add:token %}
+        <a href="{{ activate_url }}"><button type="button" class="btn">Signin to LSS</button></a>
+      {% endwith %}
+    </div>
+  </div>
+</body>
